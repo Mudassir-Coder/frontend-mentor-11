@@ -1,105 +1,161 @@
-# Frontend Mentor - Newsletter sign-up form with success message
+# Newsletter Sign-up Form with Success Message
 
-![Design preview for the Newsletter sign-up form with success message coding challenge](./preview.jpg)
+A responsive newsletter subscription form that dynamically renders form states using vanilla JavaScript and CSS. This project demonstrates accessible form validation, state management, and responsive design principles.
 
-## Welcome! 👋
+## 📸 Screenshots
 
-Thanks for checking out this front-end coding challenge.
+### Desktop View
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+![Newsletter sign-up form desktop design - [Add screenshot here]](#)
 
-**To do this challenge, you need a basic understanding of HTML, CSS and JavaScript.**
+_Desktop layout showing the sign-up form alongside the illustration, with proper spacing and visual hierarchy._
 
-## The challenge
+### Mobile View
 
-Your challenge is to build out this newsletter form and get it looking as close to the design as possible.
+![Newsletter sign-up form mobile design - [Add screenshot here]](#)
 
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+_Mobile layout with stacked form and illustration, optimized for smaller screens._
+
+### Success State
+
+![Success message after form submission - [Add screenshot here]](#)
+
+_Confirmation message displayed after successful email submission, with dismiss button to return to form._
+
+## 🔗 Links
+
+- **Solution URL:** [Add your solution link here](#)
+- **Live Site URL:** [Add your live site link here](#)
+
+## 🛠️ Built With
+
+### Core Technologies
+
+- **HTML5** - Semantic markup with proper form structure and ARIA attributes
+- **CSS3** - Modern layout techniques and responsive design
+- **Vanilla JavaScript** - DOM manipulation and form state management
+
+### Layout & Responsive Design
+
+- **CSS Flexbox** - Flexible component layouts
+- **CSS Grid** - Multi-column layouts and responsive containers
+- **Mobile-First Workflow** - Progressive enhancement starting from mobile design
+- **Media Queries** - Breakpoint-based responsive adjustments
+
+### Advanced Techniques
+
+- **Dynamic State Rendering** - Show/hide form and success message using `data-attributes` in JavaScript
+- **Form Validation** - HTML5 email validation with accessible error messaging
+- **CSS Variables** - Centralized color and typography management
+- **CSS Layers** - Organized styling with `@layer` for resets, base, and component styles
+
+## 📚 What I Learned
+
+### Dynamic Rendering Without React
+
+This project taught me how to manage complex UI state changes using **vanilla JavaScript and CSS** without a framework:
+
+- **Data-driven visibility:** Used `data-label` attributes on containers to toggle between form and success states
+- **DOM manipulation:** Selected and updated elements dynamically based on user interactions
+- **Event handling:** Implemented form submission, input validation, and button clicks with vanilla event listeners
+- **State management:** Managed form state (valid/invalid) and UI state (showing/hidden) with simple JavaScript logic
+
+The advantage is a **lightweight, framework-free solution** that's fast, has zero dependencies, and teaches fundamental DOM concepts that carry over to React, Vue, and other frameworks.
+
+### Accessibility Best Practices
+
+Built with WCAG accessibility standards:
+
+- Form labels properly associated with inputs using `for/id` attributes
+- ARIA attributes for form validation: `aria-required`, `aria-invalid`, `aria-describedby`
+- Live regions for error messages: `role="alert"` and `aria-live="polite"`
+- Keyboard navigation support with visible focus indicators
+- Semantic HTML structure for screen reader compatibility
+
+## 🤝 AI Collaboration: Fixing Accessibility with Copilot
+
+**Using:** GitHub Copilot Student Pack
+
+### Problem
+
+The initial implementation had several accessibility issues that would prevent keyboard and screen reader users from using the form:
+
+- **Removed focus outlines** - CSS `outline: none` hid keyboard navigation indicators
+- **CSS-only error messages** - Error messages created with `::after` pseudo-elements weren't readable by screen readers
+- **Missing ARIA attributes** - No semantic markers for form validation state
+- **Unclear button labels** - Generic button text didn't describe purpose
+
+### Solution with Copilot
+
+Using **GitHub Copilot's code generation and suggestions**, I:
+
+1. **Restored Focus Indicators** - Added accessible focus styles with `outline` and `outline-offset` instead of removing them
+
+   ```css
+   .submit-button:focus-visible {
+     outline: 3px solid rgba(74, 74, 255, 0.25);
+     outline-offset: 2px;
+   }
+   ```
+
+2. **Implemented Accessible Error Messages** - Replaced CSS pseudo-elements with semantic HTML and JavaScript
+
+   ```html
+   <span
+     id="email-error"
+     class="error-message"
+     role="alert"
+     aria-live="polite"
+   ></span>
+   ```
+
+3. **Added ARIA Validation Attributes** - Marked form fields with proper semantic attributes
+
+   ```html
+   <input
+     aria-required="true"
+     aria-invalid="false"
+     aria-describedby="email-error"
+   />
+   ```
+
+4. **Enhanced JavaScript Logic** - Added programmatic error management and focus control for keyboard users
+   ```javascript
+   errorMessageEl.textContent = "Valid email required";
+   inputEl.setAttribute("aria-invalid", "true");
+   successMessage.focus(); // Move focus for screen readers
+   ```
+
+### Outcome
+
+The form now meets **WCAG 2.1 Level AA accessibility standards**:
+
+- ✅ Keyboard navigable (Tab, Enter, Focus management)
+- ✅ Screen reader friendly (ARIA labels, live regions, semantic HTML)
+- ✅ Clear error messaging (visible + programmatically announced)
+- ✅ Visible focus indicators (accessible to all users)
+
+Copilot accelerated the accessibility audit and implementation, providing context-aware suggestions for ARIA patterns and CSS focus states that I then validated and refined.
+
+## ✅ Challenge Requirements
 
 Your users should be able to:
 
-- Add their email and submit the form
-- See a success message with their email after successfully submitting the form
-- See form validation messages if:
+- ✅ Add their email and submit the form
+- ✅ See a success message with their email after successfully submitting the form
+- ✅ See form validation messages when:
   - The field is left empty
   - The email address is not formatted correctly
-- View the optimal layout for the interface depending on their device's screen size
-- See hover and focus states for all interactive elements on the page
+- ✅ View the optimal layout for the interface depending on their device's screen size
+- ✅ See hover and focus states for all interactive elements on the page
+- ✅ Accessibility: Navigate the form using only a keyboard
+- ✅ Accessibility: Use the form with a screen reader
 
-### Want some support on the challenge? 
+## 📝 Frontend Mentor
 
-[Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+This is a solution to the [Newsletter sign-up form with success message challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/newsletter-signup-form-with-success-message-3fc1b721).
 
-## Where to find everything
-
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
-
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
-
-If you would like the Figma design file to gain experience using professional tools and build more accurate projects faster, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
-
-All the required assets for this project are in the `/assets` folder. The images are already exported for the correct screen size and optimized.
-
-We also include variable and static font files for the required fonts for this project. You can choose to either link to Google Fonts or use the local font files to host the fonts yourself. Note that we've removed the static font files for the font weights that aren't needed for this project.
-
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
-
-## Using AI coding assistants
-
-We've included two files to help you if you're using AI coding assistants (like Claude, GitHub Copilot, Cursor, etc.) while working on this challenge:
-
-- `AGENTS.md` - Contains detailed instructions for AI assistants on how to help you with this challenge. It's tailored to this challenge's difficulty level, so the AI will provide guidance appropriate to your learning stage—offering more support for beginner challenges and encouraging more independence on advanced ones.
-- `CLAUDE.md` - A pointer file that directs Claude-based tools to the AGENTS.md instructions.
-
-**How to use them:** You don't need to do anything! These files are automatically detected by most AI coding tools. The AI will read them and adjust its behavior to be a better learning partner—guiding you toward solutions rather than just giving you the answers.
-
-**Note:** These files are designed to help you *learn*, not to do the work for you. The AI is instructed to ask questions, give hints, and explain concepts rather than writing complete solutions.
-
-## Building your project
-
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
-
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
-
-## Deploying your project
-
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
-
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
-
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://www.frontendmentor.io/guides/hosting-your-solution).
-
-## Create a custom `README.md`
-
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
-
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
-
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
-
-## Submitting your solution
-
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://www.frontendmentor.io/guides/how-to-submit-solutions) for tips on how to do this.
-
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
-
-## Sharing your solution
-
-There are multiple places you can share your solution:
-
-1. Share your solution page in the **#finished-projects** channel of our [community](https://www.frontendmentor.io/community). 
-2. Share on [X (formerly Twitter)](https://x.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in your post. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on [LinkedIn](https://www.linkedin.com/company/frontend-mentor/).
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
-
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
+We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback.
 
 The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
 
