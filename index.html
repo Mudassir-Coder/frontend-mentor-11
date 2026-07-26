@@ -19,7 +19,7 @@
   </head>
   <body>
     <main>
-      <div id="main-container" data-label="show" class="main-container">
+      <div id="main-container" data-label="show" class="main-container" aria-label="Newsletter signup form">
         <!-- Sign-up form start -->
         <form class="form-container">
           <header>
@@ -56,17 +56,22 @@
           </header>
           <div class="form-inner-container">
             <div class="input-container">
-              <label for="email">Email address</label>
+              <div class="label-wrapper">
+                <label for="email">Email address</label>
+                <span id="email-error" class="error-message" role="alert" aria-live="polite"></span>
+              </div>
               <input
                 type="email"
                 name="email"
                 id="email"
                 placeholder="email@company.com"
                 class="input"
+                aria-required="true"
+                aria-describedby="email-error"
               />
             </div>
-            <button class="submit-button" aria-label="submit" type="submit">
-              Subscribe to monthly newslater
+            <button class="submit-button" type="submit">
+              Subscribe to monthly newsletter
             </button>
           </div>
         </form>
@@ -92,7 +97,7 @@
             <span class="email-address">ash@loremcompany.com</span>. Please open
             it and click the button inside to confirm your subscription.
           </p>
-          <button class="subscribed-button">Dismiss Message</button>
+          <button class="subscribed-button">Dismiss and return to signup</button>
         </div>
       </div>
     </main>

@@ -34,13 +34,11 @@
 
   input {
     border: none;
-    outline: none;
   }
 
   button {
     cursor: pointer;
     border: none;
-    outline: none;
   }
   ul {
     list-style-type: none;
@@ -134,15 +132,22 @@
         font-weight: bold;
       }
 
-      /* Show error message beside the label when the input is invalid */
-      /* Use :has() to detect invalid input and place message inline with label */
-      &:has(.input:user-invalid) label::after {
-        content: "Valid email required";
+      .label-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .error-message {
         color: var(--color-primary-red);
         font-size: 0.8rem;
-        display: inline-block;
-        vertical-align: middle;
-        margin-left: 11.5rem;
+        font-weight: bold;
+        min-height: 1.2rem;
+      }
+
+      .error-message:empty {
+        display: none;
       }
     }
 
@@ -157,6 +162,14 @@
     }
     .input:focus {
       border: 2px solid var(--color-blue-800);
+      outline: 3px solid rgba(74, 74, 255, 0.1);
+      outline-offset: 2px;
+    }
+
+    .input:focus-visible {
+      border: 2px solid var(--color-blue-800);
+      outline: 3px solid rgba(74, 74, 255, 0.25);
+      outline-offset: 2px;
     }
     .input:user-invalid {
       border: 2px solid var(--color-primary-red);
@@ -164,12 +177,26 @@
       color: var(--color-primary-red);
     }
 
+    .input:user-invalid:focus-visible {
+      outline: 3px solid rgba(255, 98, 87, 0.3);
+      outline-offset: 2px;
+    }
+
     .submit-button {
       background-color: var(--color-blue-800);
       color: var(--color-white);
+      transition: background 0.2s ease;
     }
     .submit-button:hover {
       background: linear-gradient(79deg, #bd205a 0%, #f84d41 100%);
+    }
+    .submit-button:focus {
+      outline: 3px solid rgba(74, 74, 255, 0.1);
+      outline-offset: 2px;
+    }
+    .submit-button:focus-visible {
+      outline: 3px solid rgba(74, 74, 255, 0.25);
+      outline-offset: 2px;
     }
   }
 }
@@ -191,6 +218,32 @@
   padding: 2rem;
   max-width: 400px;
   border-radius: 2rem;
+  role: alert;
+}
+
+.success-message-container .subscribed-button {
+  background-color: var(--color-blue-800);
+  color: var(--color-white);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.success-message-container .subscribed-button:hover {
+  background: linear-gradient(79deg, #bd205a 0%, #f84d41 100%);
+}
+
+.success-message-container .subscribed-button:focus {
+  outline: 3px solid rgba(74, 74, 255, 0.1);
+  outline-offset: 2px;
+}
+
+.success-message-container .subscribed-button:focus-visible {
+  outline: 3px solid rgba(74, 74, 255, 0.25);
+  outline-offset: 2px;
 }
 
 .success-message-inner-container {
