@@ -6,19 +6,19 @@ A responsive newsletter subscription form that dynamically renders form states u
 
 ### Desktop View
 
-![Newsletter sign-up form desktop design - ]('./design/desktop-design.jpg')
+![Newsletter sign-up form desktop design](./design/desktop-design.jpg)
 
 _Desktop layout showing the sign-up form alongside the illustration, with proper spacing and visual hierarchy._
 
 ### Mobile View
 
-![Newsletter sign-up form mobile design - ]('./design/mobile-design.jpg')
+![Newsletter sign-up form mobile design](./design/mobile-design.jpg)
 
 _Mobile layout with stacked form and illustration, optimized for smaller screens._
 
 ### Success State
 
-![Success message after form submission - ]('./design/desktop-success.jpg')
+![Success message after form submission](./design/desktop-success.jpg)
 
 _Confirmation message displayed after successful email submission, with dismiss button to return to form._
 
