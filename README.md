@@ -6,26 +6,26 @@ A responsive newsletter subscription form that dynamically renders form states u
 
 ### Desktop View
 
-![Newsletter sign-up form desktop design - [Add screenshot here]](#)
+![Newsletter sign-up form desktop design - ['./design/desktop-design.jpg']](#)
 
 _Desktop layout showing the sign-up form alongside the illustration, with proper spacing and visual hierarchy._
 
 ### Mobile View
 
-![Newsletter sign-up form mobile design - [Add screenshot here]](#)
+![Newsletter sign-up form mobile design - ['./design/mobile-design.jpg']](#)
 
 _Mobile layout with stacked form and illustration, optimized for smaller screens._
 
 ### Success State
 
-![Success message after form submission - [Add screenshot here]](#)
+![Success message after form submission - ['./design/desktop-success.jpg']](#)
 
 _Confirmation message displayed after successful email submission, with dismiss button to return to form._
 
 ## 🔗 Links
 
-- **Solution URL:** [Add your solution link here](#)
-- **Live Site URL:** [Add your live site link here](#)
+- **Solution URL:** [https://github.com/Mudassir-Coder/frontend-mentor-11](#)
+- **Live Site URL:** [https://frontend-mentor-11-one.vercel.app/](#)
 
 ## 🛠️ Built With
 
@@ -153,7 +153,7 @@ Your users should be able to:
 
 ## 📝 Frontend Mentor
 
-This is a solution to the [Newsletter sign-up form with success message challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/newsletter-signup-form-with-success-message-3fc1b721).
+This is a solution to the [Newsletter sign-up form with success message challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/newsletter-signup-form-with-success-message-3FC1AZbNrv).
 
 We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback.
 
